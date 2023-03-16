@@ -1,27 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 
-function ListItem(name, onChangeItemName, delItemFn) {
-  const inputRef = React.createRef(null);
-
-  const handleDelete = (e) => {
-    e.preventDefault();
-    delItemFn(name);
-  };
-
-  return (
-    <div>
-      <input
-        ref={inputRef}
-        value={name}
-        onChange={(e) => onChangeItemName(name, e.target.value)}
-      ></input>
-      <a href="#" onClick={handleDelete}>
-        Del
-      </a>
-    </div>
-  );
-}
+import ListItem from './components/ListItem.js';
 
 function NewTask(addToTaskList) {
   const [newTask, setNewTask] = useState('');
@@ -72,7 +52,7 @@ export default function App() {
     setTasks(newTasks);
   }
 
-  const delItemFn = function (name) {
+  const delItem = function (name) {
     let newTasksList = tasks.filter((e) => e.name != name);
     setTasks(newTasksList);
   };
@@ -86,7 +66,7 @@ export default function App() {
   return (
     <div>
       {tasks.map((item) => {
-        return ListItem(item.name, onChangeItemName, delItemFn);
+        return ListItem(item.name, onChangeItemName, delItem);
       })}
       {NewTask(addToTaskList)}
     </div>
