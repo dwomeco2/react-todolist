@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import './style.css';
-
 import ListItem from './components/ListItem';
 
 function NewTask(addToTaskList: (task: string) => void) {
@@ -64,11 +62,11 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="center">
+      {NewTask(addToTaskList)}
       {tasks.map((item, index) => {
         return ListItem(index, item.name, onChangeItemName, delItem);
       })}
-      {NewTask(addToTaskList)}
     </div>
   );
 }

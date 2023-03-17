@@ -9,10 +9,9 @@ export default function ListItem(index: number, name: string, onChangeItemName: 
   };
 
   return (
-    <div>
+    <div key={index}>
       <input
         ref={inputRef}
-        key={index}
         value={name}
         onChange={(e) => onChangeItemName(e, name)}
       ></input>
