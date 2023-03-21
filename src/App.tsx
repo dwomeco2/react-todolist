@@ -1,6 +1,6 @@
-import React, { useId, useState } from 'react';
+import React, { useState } from 'react';
 import TaskListItem from './components/TaskListItem';
-import { Icon, List, ListItem, InputBase, IconButton, Paper } from '@mui/material';
+import { Icon, InputBase, IconButton, Paper } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 function Header() {
